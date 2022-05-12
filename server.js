@@ -15,21 +15,23 @@ app.get('/sanity', function (request, response) {
 app.get('/recipes/:ingredient', function (request, response) {
     urllib.request(`https://recipes-goodness.herokuapp.com/recipes/${request.params.ingredient}`, function (err, data, res) {
         const dummyData = JSON.parse(data)
-        const results = []
-        for (let index = 0; index < dummyData.results.length; index++) {
-            let dummyResults = {}
-            dummyResults.ingredients = dummyData.results[index].ingredients
-            dummyResults.title = dummyData.results[index].title
-            dummyResults.thumbnail = dummyData.results[index].thumbnail
-            dummyResults.href = dummyData.results[index].href
-            results.push(dummyResults)
-        }
-        response.send(results)
+        response.send(getRecipes(dummyData))
     })
 
 })
 
-
+function getRecipes(dummyData) {
+    const results = []
+    for (let index = 0; index < dummyData.results.length; index++) {
+        let dummyResults = {}
+        dummyResults.ingredients = dummyData.results[index].ingredients
+        dummyResults.title = dummyData.results[index].title
+        dummyResults.thumbnail = dummyData.results[index].thumbnail
+        dummyResults.href = dummyData.results[index].href
+        results.push(dummyResults)
+    }
+    return results
+}
 
 const port = 8080
 app.listen(port, function () {
