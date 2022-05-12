@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script id="players-template" type="text/x-handlebars-template">
+        {{#each data}}
+            <div class="grid-item">
+                <div>{{title}} <br>
+            </div>
+        {{/each}}
+  </script>
+
+    <input type="text" id="input" placeholder="Team name">
+    <button onclick=getTeamPlayers()>Search</button><br>
+    <div class="grid-container">
+    </div>
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script>
+
+
+</body>
+
+</html>
