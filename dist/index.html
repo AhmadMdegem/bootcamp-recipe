@@ -14,7 +14,14 @@
     <script id="players-template" type="text/x-handlebars-template">
         {{#each data}}
             <div class="grid-item">
-                <div>{{title}} <br>
+                <a href="{{href}}">{{title}} </a><br>
+                <img src={{thumbnail}} alt="player-picture"> <br>
+                <ul>
+                    {{#each ingredients}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+
             </div>
         {{/each}}
   </script>
